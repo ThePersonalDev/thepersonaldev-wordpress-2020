@@ -2,6 +2,10 @@
 
 ## Local Development
 
+### 🚨 Important Notes
+
+- Do not edit /dist files manually, they will be overwritten
+
 ### Prereqs
 
 - Install [NodeJS](https://nodejs.org/en/)
