@@ -11,9 +11,14 @@
 
   <header class="container row">
     <div class="col-xs site-title">
-      <?php the_title_or_logo() ?>
+      <?php tcp_the_title_or_logo() ?>
     </div>
     <div class="col-xs">
-      Menu Block
+      <div class="row">
+        <div class="menu-main">
+          Menu Block
+        </div>
+        <?php tcp_the_navbar_callout() ?>
+      </div>
     </div>
   </header>
