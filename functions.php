@@ -22,3 +22,10 @@ add_action('init', function () {
     'main' => 'Main Menu'
   ]);
 });
+
+/**
+ * Custom Logo
+ */
+add_action('after_setup_theme', function () {
+  add_theme_support('custom-logo');
+});

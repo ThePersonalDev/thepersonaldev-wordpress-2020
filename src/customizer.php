@@ -5,6 +5,22 @@
 class TPD_Customizer {
   public static function register ($wp_customize) {
     /**
+     * Site Identity
+     */
+    $wp_customize->selective_refresh->add_partial('blogname', [
+      'selector' => '.site-title',
+      'render_callback' => function () {
+        tcp_the_title_or_logo();
+      }
+    ]);
+
+    $wp_customize->selective_refresh->add_partial('custom_logo', [
+      'render_callback' => function () {
+        tcp_the_title_or_logo();
+      }
+    ]);
+
+    /**
      * Navbar
      */
     $wp_customize->add_section('tpd_navbar', [
