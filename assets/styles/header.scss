@@ -1,6 +1,7 @@
 // Header
 .header-main {
   padding: 20px;
+  position: relative;
 
   section {
     background: $bg-1;
@@ -82,7 +83,7 @@
 
 .mobile-main-menu-is-open {
   .mobile-main-menu-wrap {
-    top: 0;
+    top: 100px;
   }
 
   .mobile-main-menu-hamburger span {
@@ -102,13 +103,16 @@
 
 // Mobile menu
 .mobile-main-menu-wrap {
+  z-index: 100;
   background: lighten($bg-1, 10%);
   padding: 20px;
   padding-top: 10px;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.35);
-  position: relative;
-  top: -1000px;
-  transition: top 0.75s ease;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  transition: top 0.5s ease;
 
   ul {
     margin: 0;
@@ -135,7 +139,7 @@
 
 @media screen and (min-width: $tablet) {
   .mobile-main-menu-wrap {
-    top: -1000px !important;
+    top: -100% !important;
   }
 }
 
@@ -147,4 +151,12 @@
   .mobile-main-menu-hamburger {
     display: inline-block;
   }
+}
+
+@media screen and (max-width: $phone) {
+  .site-title img {max-height: 30px;}
+
+  .mobile-main-menu-hamburger {padding: 10px;}
+
+  .navbar-callout {padding: 10px;}
 }
