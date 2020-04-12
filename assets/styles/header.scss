@@ -1,7 +1,14 @@
-header {
+// Header
+.header-main {
   padding: 20px;
+
+  section {
+    background: $bg-1;
+    padding-bottom: 20px;
+  }
 }
 
+// Logo section
 .site-title {
   font-size: 2rem;
 
@@ -11,6 +18,7 @@ header {
   }
 }
 
+// Callout
 .navbar-callout {
   padding: 15px 30px;
   vertical-align: middle;
@@ -25,6 +33,7 @@ header {
   }
 }
 
+// Main Menu
 #menu-main {
   margin: 0;
   padding: 0;
@@ -44,6 +53,7 @@ header {
   }
 }
 
+// Hamburger button
 .mobile-main-menu-hamburger {
   margin-left: 15px;
   padding: 15px;
@@ -70,17 +80,62 @@ header {
   }
 }
 
-.mobile-main-menu-is-open .mobile-main-menu-hamburger span {
-  opacity: 1;
-  transform: rotate(-45deg) translate(2px, 2px);
-
-  &:nth-last-child(3) {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
+.mobile-main-menu-is-open {
+  .mobile-main-menu-wrap {
+    top: 0;
   }
 
-  &:nth-last-child(2) {
-    transform: rotate(45deg) translate(-5px, -10px);
+  .mobile-main-menu-hamburger span {
+    opacity: 1;
+    transform: rotate(-45deg) translate(2px, 2px);
+
+    &:nth-last-child(3) {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    &:nth-last-child(2) {
+      transform: rotate(45deg) translate(-5px, -10px);
+    }
+  }
+}
+
+// Mobile menu
+.mobile-main-menu-wrap {
+  background: lighten($bg-1, 10%);
+  padding: 20px;
+  padding-top: 10px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.35);
+  position: relative;
+  top: -1000px;
+  transition: top 0.75s ease;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      border-bottom: 1px solid lighten($bg-1, 5%);
+
+      &.current-menu-item a {
+        color: $link-1;
+        font-weight: bold;
+        border-bottom: 2px solid $link-1;
+      }
+    }
+
+    a {
+      padding: 20px;
+      display: block;
+      color: $color-1;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .mobile-main-menu-wrap {
+    top: -1000px !important;
   }
 }
 
