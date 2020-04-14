@@ -20,3 +20,7 @@ npm run dev
 # Create final build files into /dist
 npm run build
 ```
+
+## Acknowledgements
+
+- [Hero background image](https://www.pngfind.com/mpng/hRToo_geometric-border-backgrounds-png-geometric-border-png-transparent/)
