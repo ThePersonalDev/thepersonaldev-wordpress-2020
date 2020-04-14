@@ -90,9 +90,9 @@ registerBlockType('tpd/captioned-heading', {
     
     return (
       <div className={className}>
-        <RichText.Content tagName='p' value={subtitle} />
-        <RichText.Content tagName='h2' value={heading} />
-        <RichText.Content tagName='div' value={content} />
+        <RichText.Content className='tpd-captioned-heading-subtitle' tagName='p' value={subtitle} />
+        <RichText.Content className='tpd-captioned-heading' tagName='h2' value={heading} />
+        <RichText.Content className='tpd-captioned-heading-content' tagName='div' value={content} />
       </div>
     )
   }
