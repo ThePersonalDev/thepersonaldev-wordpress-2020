@@ -1,0 +1,20 @@
+.wp-block-tpd-labeled-progress-bar {
+  margin-bottom: 40px;
+  font-size: 0.8rem;
+  
+  .tpd-labeled-progress-bar-label {
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  .tpd-labeled-progress-bar-percent {
+    text-align: right;
+    color: $link-1;
+
+    &:after {
+      content: '%';
+    }
+  }
+}
