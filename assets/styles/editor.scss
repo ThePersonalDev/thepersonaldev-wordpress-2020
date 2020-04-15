@@ -17,12 +17,14 @@ $color-editor-main-hover: #191e23;
   }
 
   button {
+    color: $color-editor-main;
     * {color: $color-editor-main;}
     &:hover {
       * {color: $color-editor-main-hover;}
     }
   }
 
+  // "Add block" buttons
   .block-editor-inserter__toggle {
     svg {fill: $color-editor-main-hover}
 
@@ -32,6 +34,7 @@ $color-editor-main-hover: #191e23;
     svg {fill: $color-1;}
   }
 
+  // Current focused block border
   .block-editor-block-list__layout .block-editor-block-list__block.is-selected::before {
     box-shadow: -3px 0 0 0 darken($color-1, 10%);
   }

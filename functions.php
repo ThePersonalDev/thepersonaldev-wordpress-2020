@@ -43,3 +43,31 @@ add_action('init', function () {
 add_action('after_setup_theme', function () {
   add_theme_support('custom-logo');
 });
+
+/**
+ * Custom color settings
+ */
+add_action('after_setup_theme', function () {
+  add_theme_support('editor-color-palette', [
+    [
+      'name' => 'Background 1',
+      'slug' => 'bg-1',
+      'color' => '#1f2336'
+    ],
+    [
+      'name' => 'Background 2',
+      'slug' => 'bg-2',
+      'color' => '#313552'
+    ],
+    [
+      'name' => 'Links & Highlights',
+      'slug' => 'links-1',
+      'color' => '#ffc576'
+    ],
+    [
+      'name' => 'Text',
+      'slug' => 'color-1',
+      'color' => '#fff'
+    ]
+  ]);
+});

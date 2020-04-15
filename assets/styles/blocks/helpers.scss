@@ -4,3 +4,33 @@
   align-items: stretch;
   width: 100%;
 }
+
+.wp-block-group {
+  position: relative;
+  z-index: 1;
+
+  &.has-bg-2-background-color.has-background {
+    background: $bg-2;
+  
+    padding-top: 100px;
+    padding-bottom: 100px;
+        
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      height: 100%;
+      z-index: -1;
+  
+      background: $bg-2;
+    }  
+  }
+}
+
+.wp-block-columns + .wp-block-group.has-bg-2-background-color.has-background {
+  margin-top: -50px;
+}
