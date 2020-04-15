@@ -65,6 +65,9 @@ registerBlockType('tpd/labeled-progress-bar', {
             value={percent}
           />
         </div>
+        <div className='tpd-labeled-progress-bar'>
+          <span style={{width: `${percent}%`}}></span>
+        </div>
       </div>
     )
   },

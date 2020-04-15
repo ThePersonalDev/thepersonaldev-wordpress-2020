@@ -1,8 +1,24 @@
 .wp-block-tpd-labeled-progress-bar {
   .tpd-labeled-progress-bar-label {
     flex: 1;
+    align-self: flex-end;
+    margin-bottom: 10px;
   }
   .tpd-labeled-progress-bar-percent {
     flex: 0 0 80px;
+  }
+  .tpd-labeled-progress-bar {
+    width: 100%;
+    background: $bg-1;
+    border-radius: 5px;
+
+    span {
+      display: block;
+      height: 6px;
+      border-radius: 6px;
+      background: $link-1;
+
+      transition: width 0.35s ease;
+    }
   }
 }
