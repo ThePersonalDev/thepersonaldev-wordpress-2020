@@ -1,7 +1,7 @@
 <?php
 
 add_action('init', function () {
-  register_post_type('tpd_projects', [
+  register_post_type('tpd_project', [
     'labels' => [
       'name' => 'Projects',
       'singular_name' => 'Project'
@@ -13,6 +13,7 @@ add_action('init', function () {
     'rewrite' => [
       'slug' => 'projects'
     ],
+    'supports' => ['title', 'excerpt', 'editor', 'thumbnail'],
     'show_in_rest' => true
   ]);
 });
