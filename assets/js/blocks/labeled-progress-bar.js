@@ -22,10 +22,8 @@ registerBlockType('tpd/labeled-progress-bar', {
       selector: 'p.tpd-labeled-progress-bar-label'
     },
     percent: {
-      type: 'number',
-      source: 'attribute',
-      attribute: 'value',
-      selector: 'input'
+      type: 'string',
+      default: 0
     }
   },
 
@@ -37,7 +35,8 @@ registerBlockType('tpd/labeled-progress-bar', {
   edit: props => {
     const {
       className,
-      attributes: {label, percent}
+      attributes: {label, percent},
+      setAttributes
     } = props
 
     const onChangeLabel = val => {
@@ -49,19 +48,36 @@ registerBlockType('tpd/labeled-progress-bar', {
 
     return (
       <div className={className}>
-        <RichText
-          tagName='p'
-          placeholder='Label text'
-          label='Label'
-          onChange={onChangeLabel}
-          value={label}
-        />
-        <TextControl
-          label='Percent'
-          onChange={onChangePercent}
-          value={percent}
-        />
+        <div class="tpd-control-group">
+          <RichText
+            tagName='div'
+            placeholder='Label text'
+            label='Label'
+            onChange={onChangeLabel}
+            value={label}
+          />
+          <TextControl
+            label='Percent'
+            type='number'
+            onChange={onChangePercent}
+            value={percent}
+          />
+        </div>
       </div>
     )
-  }
+  },
+
+  // save: props => {
+  //   const {
+  //     className,
+  //     attributes: {label, percent}
+  //   } = props
+
+  //   return (
+  //     <div className={className}>
+  //       <RichText.Content tagName='p' value={label} />
+  //       <div>{percent}</div>
+  //     </div>
+  //   )
+  // }
 })
