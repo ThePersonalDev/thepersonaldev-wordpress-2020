@@ -1,0 +1,16 @@
+.button,
+.tpd-projects-grid .button {
+  display: inline-block;
+  border: 1px solid $link-1;
+  padding: 10px 20px;
+  border-radius: 3px;
+  background: $bg-2;
+  color: $link-1;
+  transition: background 0.35s ease, color 0.35s ease;
+
+  &:hover {
+    background: $link-1;
+    color: $bg-1;
+    border-color: $link-1;
+  }
+}
