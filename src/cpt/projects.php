@@ -1,6 +1,18 @@
 <?php
 
 add_action('init', function () {
+  register_taxonomy('project_tag', 'tpd_project', [
+    'labels' => [
+      'name' => 'Tags',
+      'singular_name' => 'Tag'
+    ],
+    'public' => true,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => ['slug' => 'project-tag']
+  ]);
+
   register_post_type('tpd_project', [
     'labels' => [
       'name' => 'Projects',
@@ -14,6 +26,8 @@ add_action('init', function () {
       'slug' => 'projects'
     ],
     'supports' => ['title', 'excerpt', 'editor', 'thumbnail', 'page-attributes'],
+    'taxonomies' => ['project_tag'],
+    'has_archive' => 'project_tag',
     'show_in_rest' => true
   ]);
 });
