@@ -10,16 +10,42 @@ class TPD_Customizer {
     $wp_customize->selective_refresh->add_partial('blogname', [
       'selector' => '.site-title',
       'render_callback' => function () {
-        tcp_the_title_or_logo();
+        tpd_the_title_or_logo();
       }
     ]);
 
     $wp_customize->selective_refresh->add_partial('custom_logo', [
       'render_callback' => function () {
-        tcp_the_title_or_logo();
+        tpd_the_title_or_logo();
       }
     ]);
 
+    $wp_customize->selective_refresh->add_partial('source_code_flair', [
+      'render_callback' => function () {
+        tpd_sourcecode_flair();
+      }
+    ]);
+
+    /**
+     * Site Identity
+     */
+    // Sourcecode flair
+    $wp_customize->add_setting('tpd_sourcecode_flair', [
+      'default' => '',
+      'type' => 'theme_mod',
+      'capaibility' => 'edit_theme_options',
+      'transport' => 'postMessage'
+    ]);
+
+    $wp_customize->add_control('tpd_sourcecode_flair', [
+      'settings' => 'tpd_sourcecode_flair',
+      'label' => 'Sourcecode Flair',
+      'description' => 'Adds a custom comment to the top of your sourcecode. Great for adding ASCII art and messages to developers!',
+      'section' => 'title_tagline',
+      'type' => 'textarea',
+      'priority' => 100
+    ]);
+    
     /**
      * Navbar
      */
@@ -44,6 +70,7 @@ class TPD_Customizer {
       'settings' => 'tpd_navbar_callout_label'
     ]);
 
+    // Callout link
     $wp_customize->add_setting('tpd_navbar_callout_link', [
       'default' => '',
       'type' => 'theme_mod',
@@ -58,11 +85,12 @@ class TPD_Customizer {
       'settings' => 'tpd_navbar_callout_link'
     ]);
 
+    // Callout partial
     $wp_customize->selective_refresh->add_partial('tpd_navbar_callout_label', [
       'selector' => '.navbar-callout',
       'container_inclusive' => true,
       'render_callback' => function () {
-        tcp_the_navbar_callout();
+        tpd_the_navbar_callout();
       }
     ]);
   }

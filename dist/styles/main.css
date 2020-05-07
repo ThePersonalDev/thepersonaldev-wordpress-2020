@@ -1360,6 +1360,11 @@ img {
   max-width: 100%;
 }
 
+.header-main-wrap {
+  border-top: 4px solid #ffc576;
+  padding-top: 40px;
+}
+
 .header-main {
   padding: 20px;
   position: relative;
