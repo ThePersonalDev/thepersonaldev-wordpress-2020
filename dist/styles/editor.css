@@ -1011,6 +1011,9 @@
 .wp-block-tpd-captioned-heading {
   margin-bottom: 3rem;
 }
+.wp-block-tpd-captioned-heading:not(:first-child) {
+  margin-top: 100px;
+}
 .wp-block-tpd-captioned-heading .tpd-captioned-heading-subtitle {
   color: #ffc576;
   font-size: 1.25rem;
@@ -1031,6 +1034,7 @@ body.home main > div:first-child .wp-block-tpd-captioned-heading,
 body.home div:not(.block-editor-inner-blocks) > .block-editor-block-list__layout > .wp-block:first-child .wp-block-tpd-captioned-heading,
 .edit-post-visual-editor main > div:first-child .wp-block-tpd-captioned-heading,
 .edit-post-visual-editor div:not(.block-editor-inner-blocks) > .block-editor-block-list__layout > .wp-block:first-child .wp-block-tpd-captioned-heading {
+  margin-top: 0;
   margin-bottom: 60px;
 }
 body.home main > div:first-child .tpd-captioned-heading-subtitle,
