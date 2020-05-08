@@ -40,6 +40,7 @@ function tpd_blocks_projects_grid_render ($attributes, $content) {
               </a>
               <div class="tpd-projects-item-content">
                 <h3><a href="<?= get_permalink() ?>"><?php the_title() ?></a></h3>
+                <p class="tpd-projects-item-tags"><?= get_the_term_list($post->ID, 'project_tag') ?></p>
                 <p><?php the_excerpt() ?></p>
                 <p>
                   <a href="<?= get_permalink() ?>" class="button">Read More</a>

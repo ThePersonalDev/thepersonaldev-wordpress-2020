@@ -24,6 +24,14 @@
     }
   }
 
+  .tpd-projects-item-tags {
+    a:not(:last-child) {
+      &:after {
+        content: ', ';
+      }
+    }
+  }
+  
   .tpd-projects-item {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
