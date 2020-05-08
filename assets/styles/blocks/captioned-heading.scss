@@ -42,6 +42,26 @@ body.home,
     }
     .tpd-captioned-heading-content {
       font-size: 2rem;
+      line-height: 2.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .wp-block-tpd-captioned-heading .tpd-captioned-heading {
+    font-size: 1.5rem;
+  }
+
+  body.home,
+  .edit-post-visual-editor {
+    main > div:first-child,
+    div:not(.block-editor-inner-blocks) > .block-editor-block-list__layout > .wp-block:first-child {
+      .tpd-captioned-heading {
+        font-size: 3.5rem;
+      }
+      .tpd-captioned-heading-content {
+        font-size: 1.5rem;
+      }
     }
   }
 }
