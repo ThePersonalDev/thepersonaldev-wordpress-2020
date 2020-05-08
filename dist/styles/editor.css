@@ -1137,6 +1137,9 @@ body.home div:not(.block-editor-inner-blocks) > .block-editor-block-list__layout
 .tpd-projects-grid .tpd-projects-item-cover:hover img {
   transform: scale(1.25);
 }
+.tpd-projects-grid .tpd-projects-item-tags a:not(:last-child):after {
+  content: ", ";
+}
 .tpd-projects-grid .tpd-projects-item {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
