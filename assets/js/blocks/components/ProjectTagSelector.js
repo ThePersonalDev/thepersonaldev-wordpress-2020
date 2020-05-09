@@ -36,7 +36,7 @@ export default class ProjectGridTagSelector extends Component {
       this.state.tags = tags
     })
   }
-  
+
   /**
    * Render the multiselect field
    */
@@ -49,7 +49,7 @@ export default class ProjectGridTagSelector extends Component {
         <PanelBody title="Tag Manager">
           {tags
             ? <PanelRow>
-                <SelectControl multiple label="Excluded tags" value={excludedTags} options={tags} />
+                <SelectControl multiple label="Excluded tags" value={excludedTags} options={tags} onChange={this.props.onChange} />
               </PanelRow>
     
             : <Spinner />

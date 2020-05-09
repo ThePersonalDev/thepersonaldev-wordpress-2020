@@ -201,7 +201,8 @@ var ProjectGridTagSelector = /*#__PURE__*/function (_Component) {
         multiple: true,
         label: "Excluded tags",
         value: excludedTags,
-        options: tags
+        options: tags,
+        onChange: this.props.onChange
       })) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Spinner"], null)));
     }
   }]);

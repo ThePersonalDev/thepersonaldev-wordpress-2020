@@ -14,7 +14,7 @@ add_action('init', function () {
     'editor_script' => 'tpd-blocks-projects-grid',
     'render_callback' => 'tpd_blocks_projects_grid_render',
     'attributes' => [
-      'excludeTags' => [
+      'excludedTags' => [
         'type' => 'array',
         'default' => [],
         'items' => ['type' => 'number']
@@ -24,11 +24,22 @@ add_action('init', function () {
 });
 
 function tpd_blocks_projects_grid_render ($attributes, $content) {
+  $tax_query = null;
+  if ($tags = $attributes['excludedTags']) {
+    $tax_query = [[
+      'taxonomy' => 'project_tag',
+      'field' => 'id',
+      'operator' => 'NOT IN',
+      'terms' => $tags
+    ]];
+  }
+  
   $posts = get_posts([
     'post_type' => 'tpd_project',
     'posts_per_page' => 6,
     'order_by' => 'order',
-    'order' => 'ASC'
+    'order' => 'ASC',
+    'tax_query' => $tax_query
   ]);
 
   if (!count($posts)) {
