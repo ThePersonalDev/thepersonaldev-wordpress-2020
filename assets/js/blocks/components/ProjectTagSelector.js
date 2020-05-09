@@ -1,6 +1,6 @@
 import {Component} from '@wordpress/element'
 import {InspectorControls} from '@wordpress/editor'
-import {PanelBody, PanelRow, SelectControl} from '@wordpress/components'
+import {PanelBody, PanelRow, SelectControl, Spinner} from '@wordpress/components'
 
 // @see https://www.ibenic.com/create-gutenberg-block-displaying-post/
 export default class ProjectGridTagSelector extends Component {
@@ -20,6 +20,14 @@ export default class ProjectGridTagSelector extends Component {
   constructor () {
     super(...arguments)
     this.state = this.constructor.getInitialState(this.props.attributes)
+    this.getTags()
+  }
+
+  /**
+   * Fetch tags from the server
+   */
+  getTags () {
+    console.log(this)
   }
   
   /**
@@ -37,7 +45,7 @@ export default class ProjectGridTagSelector extends Component {
                 <SelectControl multiple label="Excluded tags" value={excludedTags} options={tags} />
               </PanelRow>
     
-            : <p><strong>Loading tags...</strong></p>
+            : <Spinner />
           }
         </PanelBody>
       </InspectorControls>

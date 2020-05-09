@@ -158,14 +158,26 @@ var ProjectGridTagSelector = /*#__PURE__*/function (_Component) {
 
     _this = _super.apply(this, arguments);
     _this.state = _this.constructor.getInitialState(_this.props.attributes);
+
+    _this.getTags();
+
     return _this;
   }
   /**
-   * Render the multiselect field
+   * Fetch tags from the server
    */
 
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ProjectGridTagSelector, [{
+    key: "getTags",
+    value: function getTags() {
+      console.log(this);
+    }
+    /**
+     * Render the multiselect field
+     */
+
+  }, {
     key: "render",
     value: function render() {
       var excludedTags = this.props.attributes.excludedTags.excludedTags;
@@ -177,7 +189,7 @@ var ProjectGridTagSelector = /*#__PURE__*/function (_Component) {
         label: "Excluded tags",
         value: excludedTags,
         options: tags
-      })) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("p", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("strong", null, "Loading tags..."))));
+      })) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Spinner"], null)));
     }
   }]);
 
