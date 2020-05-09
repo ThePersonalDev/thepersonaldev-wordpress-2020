@@ -141,12 +141,9 @@ var ProjectGridTagSelector = /*#__PURE__*/function (_Component) {
     /**
      * Generate
      */
-    value: function getInitialState(_ref) {
-      var excludedTags = _ref.excludedTags,
-          tags = _ref.tags;
+    value: function getInitialState() {
       return {
-        tags: tags,
-        excludedTags: excludedTags
+        tags: []
       };
     }
     /**
@@ -161,7 +158,7 @@ var ProjectGridTagSelector = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ProjectGridTagSelector);
 
     _this = _super.apply(this, arguments);
-    _this.state = _this.constructor.getInitialState(_this.props.attributes);
+    _this.state = _this.constructor.getInitialState();
 
     _this.getTags();
 
@@ -175,6 +172,8 @@ var ProjectGridTagSelector = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ProjectGridTagSelector, [{
     key: "getTags",
     value: function getTags() {
+      var _this2 = this;
+
       _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_8___default()({
         path: '/wp/v2/project_tag'
       }).then(function (results) {
@@ -184,7 +183,7 @@ var ProjectGridTagSelector = /*#__PURE__*/function (_Component) {
             value: result.id
           };
         });
-        console.log(tags); // this.setState({tags})
+        _this2.state.tags = tags;
       });
     }
     /**
@@ -194,9 +193,8 @@ var ProjectGridTagSelector = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this$props$attribute = this.props.attributes.excludedTags,
-          excludedTags = _this$props$attribute.excludedTags,
-          tags = _this$props$attribute.tags;
+      var excludedTags = this.props.attributes.excludedTags.excludedTags;
+      var tags = this.state.tags;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_editor__WEBPACK_IMPORTED_MODULE_6__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["PanelBody"], {
         title: "Tag Manager"
       }, tags ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["SelectControl"], {

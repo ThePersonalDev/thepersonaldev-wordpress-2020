@@ -8,10 +8,9 @@ export default class ProjectGridTagSelector extends Component {
   /**
    * Generate
    */
-  static getInitialState ({excludedTags, tags}) {
+  static getInitialState () {
     return {
-      tags,
-      excludedTags
+      tags: []
     }
   }
  
@@ -20,7 +19,7 @@ export default class ProjectGridTagSelector extends Component {
    */
   constructor () {
     super(...arguments)
-    this.state = this.constructor.getInitialState(this.props.attributes)
+    this.state = this.constructor.getInitialState()
     this.getTags()
   }
 
@@ -34,8 +33,7 @@ export default class ProjectGridTagSelector extends Component {
         value: result.id
       }))
 
-      console.log(tags)
-      // this.setState({tags})
+      this.state.tags = tags
     })
   }
   
@@ -43,7 +41,8 @@ export default class ProjectGridTagSelector extends Component {
    * Render the multiselect field
    */
   render () {
-    let {excludedTags, tags} = this.props.attributes.excludedTags
+    let {excludedTags} = this.props.attributes.excludedTags
+    let tags = this.state.tags
 
     return (
       <InspectorControls>
