@@ -12,16 +12,34 @@ add_action('init', function () {
 
   register_block_type('tpd/projects-grid', [
     'editor_script' => 'tpd-blocks-projects-grid',
-    'render_callback' => 'tpd_blocks_projects_grid_render'
+    'render_callback' => 'tpd_blocks_projects_grid_render',
+    'attributes' => [
+      'excludedTags' => [
+        'type' => 'array',
+        'default' => [],
+        'items' => ['type' => 'number']
+      ]
+    ]
   ]);
 });
 
 function tpd_blocks_projects_grid_render ($attributes, $content) {
+  $tax_query = null;
+  if ($tags = $attributes['excludedTags']) {
+    $tax_query = [[
+      'taxonomy' => 'project_tag',
+      'field' => 'id',
+      'operator' => 'NOT IN',
+      'terms' => $tags
+    ]];
+  }
+  
   $posts = get_posts([
     'post_type' => 'tpd_project',
     'posts_per_page' => 6,
     'order_by' => 'order',
-    'order' => 'ASC'
+    'order' => 'ASC',
+    'tax_query' => $tax_query
   ]);
 
   if (!count($posts)) {
@@ -32,9 +50,9 @@ function tpd_blocks_projects_grid_render ($attributes, $content) {
   ob_start(); ?>
     <div class="tpd-projects-grid row">
       <?php foreach($posts as $post): setup_postdata($post); ?>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="tpd-projects-item">
-            <?php if (has_post_thumbnail($post->ID)): ?>
+        <?php if (has_post_thumbnail($post->ID)): ?>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="tpd-projects-item">
               <a href="<?= get_permalink() ?>" class="tpd-projects-item-cover">
                 <?php the_post_thumbnail() ?>
               </a>
@@ -46,8 +64,8 @@ function tpd_blocks_projects_grid_render ($attributes, $content) {
                   <a href="<?= get_permalink() ?>" class="button">Read More</a>
                 </p>
               </div>
-            <?php endif ?>
-          </div>
+            </div>
+          <?php endif ?>
         </div>
       <?php endforeach; ?>
     </div>
