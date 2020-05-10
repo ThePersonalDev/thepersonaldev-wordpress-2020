@@ -1,6 +1,5 @@
 import {Component} from '@wordpress/element'
-import {InspectorControls} from '@wordpress/editor'
-import {PanelBody, PanelRow, SelectControl, Spinner} from '@wordpress/components'
+import {PanelRow, SelectControl, Spinner} from '@wordpress/components'
 
 // @see https://www.ibenic.com/create-gutenberg-block-displaying-post/
 export default class ProjectGridTagSelector extends Component {
@@ -27,18 +26,12 @@ export default class ProjectGridTagSelector extends Component {
   render () {
     let {excludedTags} = this.props.attributes.excludedTags
 
-    return (
-      <InspectorControls>
-        <PanelBody title="Tag Manager">
-          {this.props.tags
-            ? <PanelRow>
-                <SelectControl multiple label="Excluded tags" value={excludedTags} options={this.props.tags} onChange={this.props.onChange} />
-              </PanelRow>
-    
-            : <Spinner />
-          }
-        </PanelBody>
-      </InspectorControls>
+    return (this.props.tags
+      ? <PanelRow>
+          <SelectControl multiple label="Excluded tags" value={excludedTags} options={this.props.tags} onChange={this.props.onChange} />
+        </PanelRow>
+
+      : <Spinner />
     )
   }
 }

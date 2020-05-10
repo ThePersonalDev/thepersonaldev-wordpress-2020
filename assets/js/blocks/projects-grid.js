@@ -1,6 +1,8 @@
 import {registerBlockType} from '@wordpress/blocks'
 import {createElement} from '@wordpress/element'
 import {withSelect} from '@wordpress/data'
+import {PanelBody} from '@wordpress/components'
+import {InspectorControls} from '@wordpress/editor'
 import ServerSideRender from '@wordpress/server-side-render'
 import ProjectTagSelector from './components/ProjectTagSelector'
 
@@ -21,13 +23,12 @@ registerBlockType('tpd/projects-grid', {
     }
   },
   
+  /**
+   * - Fetch list of tags
+   */
   edit: withSelect(select => {
     return {tags: select('core').getEntityRecords('taxonomy', 'project_tag')}
   })(({tags, attributes, setAttributes}) => {
-    const onExcludedTagsChange = tags => {
-      setAttributes({excludedTags: tags})
-    }
-
     // Genereate tag options for select
     let tagOpts = []
     if (tags) {
@@ -37,9 +38,17 @@ registerBlockType('tpd/projects-grid', {
       }))
     }
 
+    const onExcludedTagsChange = tags => {
+      setAttributes({excludedTags: tags})
+    }
+
     return (
       <>
-        <ProjectTagSelector attributes={attributes} tags={tagOpts} onChange={onExcludedTagsChange} />
+        <InspectorControls>
+          <PanelBody title="Tag Manager">
+            <ProjectTagSelector attributes={attributes} tags={tagOpts} onChange={onExcludedTagsChange} />
+          </PanelBody>
+        </InspectorControls>
         <ServerSideRender block='tpd/projects-grid' attributes={attributes} />
       </>
     )
