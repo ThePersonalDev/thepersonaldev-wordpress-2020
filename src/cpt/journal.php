@@ -1,6 +1,19 @@
 <?php
 
 add_action('init', function () {
+  register_taxonomy('tpd_journal_categories', 'tpd_journal', [
+    'labels' => [
+      'name' => 'Categories',
+      'singular_name' => 'Category'
+    ],
+    'public' => true,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => ['slug' => 'journal-category'],
+    'show_in_rest' => true    
+  ]);
+  
   register_taxonomy('tpd_journal_tags', 'tpd_journal', [
     'labels' => [
       'name' => 'Tags',
