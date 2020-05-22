@@ -38,7 +38,7 @@ function tpd_blocks_projects_grid_render ($attributes, $content) {
   // Exclude tags
   if ($tags = $attributes['excludedTags']) {
     array_push($tax_query, [
-      'taxonomy' => 'project-tag',
+      'taxonomy' => 'project_tags',
       'field' => 'id',
       'operator' => 'NOT IN',
       'terms' => $tags
@@ -48,7 +48,7 @@ function tpd_blocks_projects_grid_render ($attributes, $content) {
   // Must include tags
   if ($tags = $attributes['mustIncludeTags']) {
     array_push($tax_query, [
-      'taxonomy' => 'project_tag',
+      'taxonomy' => 'project_tags',
       'field' => 'id',
       'operator' => 'IN',
       'terms' => $tags
@@ -79,7 +79,7 @@ function tpd_blocks_projects_grid_render ($attributes, $content) {
               </a>
               <div class="tpd-projects-item-content">
                 <h3><a href="<?= get_permalink() ?>"><?php the_title() ?></a></h3>
-                <p class="tpd-projects-item-tags"><?= get_the_term_list($post->ID, 'project-tag') ?></p>
+                <p class="tpd-projects-item-tags"><?= get_the_term_list($post->ID, 'project_tags') ?></p>
                 <p><?php the_excerpt() ?></p>
                 <p>
                   <a href="<?= get_permalink() ?>" class="button">Read More</a>
