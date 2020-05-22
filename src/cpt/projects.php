@@ -1,18 +1,18 @@
 <?php
 
 add_action('init', function () {
-  register_taxonomy('project_tag', 'tpd_project', [
-    'labels' => [
-      'name' => 'Tags',
-      'singular_name' => 'Tag'
-    ],
-    'public' => true,
-    'show_ui' => true,
-    'show_admin_column' => true,
-    'query_var' => true,
-    'rewrite' => ['slug' => 'project-tag'],
-    'show_in_rest' => true
-  ]);
+  // register_taxonomy('project_tag', 'tpd_project', [
+  //   'labels' => [
+  //     'name' => 'Tags',
+  //     'singular_name' => 'Tag'
+  //   ],
+  //   'public' => true,
+  //   'show_ui' => true,
+  //   'show_admin_column' => true,
+  //   'query_var' => true,
+  //   'rewrite' => ['slug' => 'project-tag'],
+  //   'show_in_rest' => true
+  // ]);
 
   register_post_type('tpd_project', [
     'labels' => [
@@ -27,8 +27,8 @@ add_action('init', function () {
       'slug' => 'projects'
     ],
     'supports' => ['title', 'excerpt', 'editor', 'thumbnail', 'page-attributes'],
-    'taxonomies' => ['project_tag'],
-    'has_archive' => 'project_tag',
+    // 'taxonomies' => ['project_tag'],
+    // 'has_archive' => 'project_tag',
     'show_in_rest' => true
   ]);
 });

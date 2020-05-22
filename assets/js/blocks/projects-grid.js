@@ -36,7 +36,7 @@ registerBlockType('tpd/projects-grid', {
    * - Fetch list of tags
    */
   edit: withSelect(select => {
-    return {tags: select('core').getEntityRecords('taxonomy', 'project_tag')}
+    return {tags: select('core').getEntityRecords('taxonomy', 'project-tag')}
   })(({tags, attributes, setAttributes}) => {
     // Genereate tag options for select
     let tagOpts = []
